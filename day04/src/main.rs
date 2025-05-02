@@ -7,7 +7,6 @@ mod part01;
 mod part02;
 
 const EXAMPLE: &str = include_str!("example.txt");
-const EXAMPLE02: &str = include_str!("example02.txt");
 const INPUT: &str = include_str!("input.txt");
 
 fn main() {
@@ -24,7 +23,7 @@ fn main() {
     println!("in 01 {}", input01);
     wait_on_interactive(interactive);
 
-    let example02 = part02(EXAMPLE02);
+    let example02 = part02(EXAMPLE);
     println!("ex 02 {}", example02);
     wait_on_interactive(interactive);
 
