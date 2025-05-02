@@ -10,15 +10,29 @@ impl DenseGrid {
     pub fn from_string(string: impl ToString) -> Self {
         let string = string.to_string();
 
+        if string.is_empty() {
+            panic!("no empty strings allowed")
+        }
+
         let data: Vec<Vec<_>> = string.lines().map(|line| line.chars().collect()).collect();
         Self { data }
     }
 
     pub fn get(&self, coord: &Coord) -> Option<char> {
-        self.data
-            .get(coord.y)
-            .and_then(|row| row.get(coord.x))
-            .copied()
+        if coord.x < 0 || coord.y < 0 {
+            return None;
+        }
+        let x = coord.x as usize;
+        let y = coord.y as usize;
+        self.data.get(y).and_then(|row| row.get(x)).copied()
+    }
+
+    pub fn height(&self) -> usize {
+        self.data.len()
+    }
+
+    pub fn width(&self) -> usize {
+        self.data.get(0).unwrap().len()
     }
 }
 
