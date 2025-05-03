@@ -12,8 +12,8 @@ const INPUT: &str = include_str!("input.txt");
 fn main() {
     let interactive = env::args().skip(1).nth(0).unwrap_or("".to_owned()) == "-i";
 
-    use part01::part as part01;
-    use part02::part as part02;
+    use part01::part01;
+    use part02::part02;
 
     let example01 = part01(EXAMPLE);
     println!("ex 01 {}", example01);

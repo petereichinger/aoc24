@@ -1,3 +1,3 @@
-pub fn part01(input: &str) -> u64 {
+pub fn part(input: &str) -> u64 {
     0
 }
